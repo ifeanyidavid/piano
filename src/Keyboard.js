@@ -7,6 +7,7 @@ class Keyboard extends React.Component {
     super(props);
 
     this.state = {
+      count: 0,
       value: "",
       note: "",
       notesPlaying: []
@@ -35,14 +36,25 @@ class Keyboard extends React.Component {
 
     const notes = value.split(",");
 
-    notes.forEach(note => {
-      const notesPlaying = [...this.state.notesPlaying, note];
-      console.log(notesPlaying);
-      this.setState({
-        ...this.state,
-        notesPlaying
-      });
-    });
+    this.id = setInterval(() => {
+      let { count } = this.state;
+
+      if (count === notes.length) {
+        clearInterval(this.id);
+        this.setState(prevState => ({
+          notesPlaying: [],
+          note: "",
+          value: "",
+          count: prevState.count - notes.length - 1
+        }));
+      }
+
+      if (notes[count]) {
+        this.onPlayNoteStart(notes[count]);
+      }
+
+      this.setState(prevState => ({ count: prevState.count + 1 }));
+    }, 1000);
   };
 
   handleChange = e => {
