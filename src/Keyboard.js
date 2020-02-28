@@ -31,7 +31,7 @@ class Keyboard extends React.Component {
     });
   };
 
-  handleKeyPress = () => {
+  handlePlay = () => {
     const { value } = this.state;
 
     const notes = value.split(",");
@@ -92,7 +92,7 @@ class Keyboard extends React.Component {
               Allowed notes: C3, C#3, D3, D#3, E3, F3, F#3, G3, G#3, A3, A#3, B3
             </p>
             <input type="text" value={value} onChange={this.handleChange} />
-            <button onClick={this.handleKeyPress}>Play</button>
+            <button onClick={this.handlePlay}>Play</button>
           </div>
         </div>
       </Fragment>
