@@ -34,13 +34,8 @@
   font-size: 1rem;
 }
 
-.piano-natural-key-playing {
-  border-bottom: 10px solid black;
-  color: red;
-}
-
 .piano-accidental-key-playing {
-  border-bottom: 10px solid red !important;
+  background-color: #222 !important;
 }
 
 .piano-accidental-key-wrapper {
